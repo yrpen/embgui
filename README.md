@@ -1,10 +1,8 @@
 ## EmbGUI - embedded GUI for Go apps. 
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/inteliwise/embgui)](https://goreportcard.com/report/github.com/inteliwise/embgui)
-
 Instant admin panels for Go apps. Turn plain Go code into HTML+CSS admin panel with a collection of common components and a predefined layout.
 
-<img src="https://raw.githubusercontent.com/inteliwise/embgui/master/examples/screenshot.png" alt="screenshot" style="max-width:100%;"></a>
+<img src="https://raw.githubusercontent.com/gsiehien/embgui/master/examples/screenshot.png" alt="screenshot" style="max-width:100%;"></a>
 
 ## Use case
 
@@ -29,7 +27,7 @@ package main
 
 import (
 	"net/http"
-	"github.com/inteliwise/embgui"
+	"github.com/gsiehien/embgui"
 )
 
 var ui *embgui.EmbGUI

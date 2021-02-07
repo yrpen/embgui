@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/inteliwise/embgui"
+	"github.com/gsiehien/embgui"
 )
 
 var ui *embgui.EmbGUI

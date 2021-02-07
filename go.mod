@@ -1,3 +1,3 @@
-module github.com/inteliwise/embgui
+module github.com/gsiehien/embgui
 
-go 1.16
+go 1.15
