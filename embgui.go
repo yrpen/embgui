@@ -83,6 +83,11 @@ func (gui *EmbGUI) NewRoot(menuOption string) *EmbNode {
 	return &EmbNode{Root: true, GUIConfig: gui, menuOption: menuOption}
 }
 
+// NewHandle generates an empty handle to generate headless partials
+func NewHandle() *EmbNode {
+	return &EmbNode{}
+}
+
 // attr renders HTML HTMLTag attribute
 func attr(name string, value string, buffer *strings.Builder) {
 	if value == "" {
