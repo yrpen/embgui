@@ -176,6 +176,12 @@ func (n *EmbNode) render() string {
 	return buffer.String()
 }
 
+// HeadlessRender HTML element and its child nodes
+// if you don't want to escape text inside the tag, set Unsafe to true
+func (n *EmbNode) HeadlessRender() string {
+	return n.render()
+}
+
 // RenderPage renders template with top-menu, root EmbNode element and its children
 func (n *EmbNode) RenderPage() (string, error) {
 	if n.Root == false {
