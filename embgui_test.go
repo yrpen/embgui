@@ -15,6 +15,7 @@ var simpleElementTests = []simpleElementTest{
 	{"Hr", func(page *EmbNode) string { return page.Hr().render() }, "<hr class='hr'></hr>"},
 	{"H1", func(page *EmbNode) string { return page.H1("H1").render() }, "<h1 class='title is-1'>H1</h1>"},
 	{"H2", func(page *EmbNode) string { return page.H2("H2").render() }, "<h2 class='title is-2'>H2</h2>"},
+	{"CustomTag", func(page *EmbNode) string { return page.CustomTag("turbo-frame", "f1", "").render() }, "<turbo-frame id='f1'></turbo-frame>"},
 	{"H3", func(page *EmbNode) string { return page.H3("H3").render() }, "<h3 class='title is-3'>H3</h3>"},
 	{"H4", func(page *EmbNode) string { return page.H4("H4").render() }, "<h4 class='title is-4'>H4</h4>"},
 	{"H5", func(page *EmbNode) string { return page.H5("H5").render() }, "<h5 class='title is-5'>H5</h5>"},

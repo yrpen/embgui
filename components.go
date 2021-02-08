@@ -246,3 +246,8 @@ func (n *EmbNode) RawHTML(html string) *EmbNode {
 func (n *EmbNode) Hr() *EmbNode {
 	return n.add(&EmbNode{HTMLTag: "hr", Class: "hr"})
 }
+
+//CustomTag generates a custom tag with id
+func (n *EmbNode) CustomTag(tag string, id string, class string) *EmbNode {
+	return n.add(&EmbNode{HTMLTag: tag, ID: id, Class: class})
+}
