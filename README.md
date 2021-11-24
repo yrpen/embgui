@@ -37,6 +37,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 	page := ui.NewRoot("Hello") // "Hello" option will be active on navbar
 	page.H1("Hello!")
 	page.P("Lorem...")
+	page.P("").Strong("Bold text")
+	page.P("").Em("Emphasized text")
 	form := page.Form("/newuser")
 	form.FormInput("First Name", "first_name")
 	form.FormButton("Send")

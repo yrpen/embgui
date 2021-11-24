@@ -35,6 +35,16 @@ func (n *EmbNode) P(text string) *EmbNode {
 	return n.add(&EmbNode{Text: text, HTMLTag: "p"})
 }
 
+// Strong generates <strong> tag
+func (n *EmbNode) Strong(text string) *EmbNode {
+	return n.add(&EmbNode{Text: text, HTMLTag: "strong"})
+}
+
+// Em generates <em> tag
+func (n *EmbNode) Em(text string) *EmbNode {
+	return n.add(&EmbNode{Text: text, HTMLTag: "em"})
+}
+
 // Div generates <div> with custom id and styling
 func (n *EmbNode) Div(id string, style string, text string) *EmbNode {
 	return n.add(&EmbNode{ID: id, HTMLTag: "div", Style: style, Text: text})
