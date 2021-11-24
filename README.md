@@ -41,6 +41,18 @@ func index(w http.ResponseWriter, r *http.Request) {
 	page.P("").Em("Emphasized text")
 	form := page.Form("/newuser")
 	form.FormInput("First Name", "first_name")
+
+	radio := form.FormRadio("Sex", "sex")
+	radio.FormRadioOption("male", "sex")
+	radio.FormRadioOption("female", "sex")
+	radio.FormRadioOption("other", "sex")
+
+	select_ := form.FormSelect("Country", "country")
+	select_.FormSelectOption("Great Britain", "gb")
+	select_.FormSelectOption("United States Of America", "usa")
+	select_.FormSelectOption("Poland", "pl")
+
+	form.FormCheckbox("Agree to therms and conditions", "agree")
 	form.FormButton("Send")
 	table := page.GenTableBody([]string{"name", "surname", "action"})
 	row := table.Tr()

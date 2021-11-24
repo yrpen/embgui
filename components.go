@@ -205,6 +205,51 @@ func (n *EmbNode) FormInput(label string, hideLabel bool, name string, value str
 	return fieldWrapper
 }
 
+// FormCheckbox generates a checkbox inside form
+func (n *EmbNode) FormCheckbox(label string, name string) *EmbNode {
+	fieldWrapper := n.add(&EmbNode{HTMLTag: "div", Class: "field"})
+	controlWrapper := fieldWrapper.add(&EmbNode{HTMLTag: "div", Class: "control"})
+	inputHTMLString := (&EmbNode{HTMLTag: "input", Type: "checkbox", Name: name}).render()
+
+	labelWrapper := controlWrapper.add(&EmbNode{HTMLTag: "label", Class: "checkbox", Text: inputHTMLString + " " + label, Unsafe: true})
+//	labelWrapper.add(&EmbNode{HTMLTag: "input", Type: "checkbox", Name: name})
+	return labelWrapper
+}
+
+// FormSelect generates select inside form
+// Use with FormSelectOption
+func (n *EmbNode) FormSelect(label string, name string) *EmbNode {
+	fieldWrapper := n.add(&EmbNode{HTMLTag: "div", Class: "field"})
+	fieldWrapper.add(&EmbNode{HTMLTag: "label", Class: "label", Text: label})
+	controlWrapper := fieldWrapper.add(&EmbNode{HTMLTag: "div", Class: "control"})
+	selectWrapper := controlWrapper.add(&EmbNode{HTMLTag: "div", Class: "select"})
+	selectList := selectWrapper.add(&EmbNode{HTMLTag: "select", Name: name})
+	return selectList
+}
+
+// FormSelectOption add option inside select html tag
+func (n *EmbNode) FormSelectOption(value string, text string) *EmbNode {
+	option := n.add(&EmbNode{HTMLTag: "option", Value: value, Text: text})
+	return option
+}
+
+// FormRadio generates radio wrapper inside form
+// Use with FormRadioOption
+func (n *EmbNode) FormRadio(label string, name string) *EmbNode {
+	fieldWrapper := n.add(&EmbNode{HTMLTag: "div", Class: "field"})
+	fieldWrapper.add(&EmbNode{HTMLTag: "label", Class: "label", Text: label})
+	controlWrapper := fieldWrapper.add(&EmbNode{HTMLTag: "div", Class: "control"})
+	return controlWrapper
+}
+
+// FormRadioOption add radio option inside radio wrapper
+func (n *EmbNode) FormRadioOption(label string, name string) *EmbNode {
+	inputHTMLString := (&EmbNode{HTMLTag: "input", Type: "radio", Name: name, Value: label}).render()
+	option := n.add(&EmbNode{HTMLTag: "label", Class: "radio", Text: inputHTMLString + " " + label, Unsafe: true})
+//	option.add(&EmbNode{HTMLTag: "input", Type: "radio", Name: name, Value: label})
+	return option
+}
+
 // FileUpload generates a file upload form
 func (n *EmbNode) FileUpload(action string, label string, name string) *EmbNode {
 	realForm := n.add(&EmbNode{HTMLTag: "form", Action: action, Method: "POST", Enctype: "multipart/form-data"})
